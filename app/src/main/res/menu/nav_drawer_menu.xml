@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="HardcodedText">
 
     <group android:checkableBehavior="single">
         <item
@@ -8,9 +10,20 @@
         <item
             android:id="@+id/profileFragment2"
             android:title="Profile" />
-
         <item
-            android:id="@+id/exitFragment"
-            android:title="Exit" />
+            android:id="@+id/loginFragment"
+            android:title="Login" />
+        <item
+            android:title="Crate new account" />
     </group>
+
+    <item android:title="">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/exit"
+                    android:title="Exit" />
+            </group>
+        </menu>
+    </item>
 </menu>
