@@ -5,8 +5,8 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:orientation="vertical"
-android:layout_gravity="center"
-android:layout_height="wrap_content"
+android:gravity="center"
+android:layout_height="match_parent"
 android:background="@color/bakground"
 tools:context=".MainActivity">
 
@@ -15,6 +15,7 @@ tools:context=".MainActivity">
     android:layout_height="230dp"
     android:layout_gravity="center"
     android:layout_marginTop="25dp"
+    android:layout_marginBottom="50dp"
     app:shapeAppearanceOverlay="@style/Rounded"
     app:srcCompat="@drawable/register_now" />
 
@@ -22,17 +23,17 @@ tools:context=".MainActivity">
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="16dp"
-    android:layout_marginTop="25sp"
+
     android:backgroundTint="@color/light_blue"
     android:layout_marginBottom="16dp"
-    app:cardCornerRadius="50dp">
+    app:cardCornerRadius="30dp">
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="7dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="13dp"
         android:src="@drawable/ic_baseline_person_24"
         app:tint="@color/black" />
 
@@ -62,7 +63,7 @@ tools:context=".MainActivity">
     android:layout_marginHorizontal="16dp"
     android:backgroundTint="@color/light_blue"
     android:layout_marginBottom="16dp"
-    app:cardCornerRadius="50dp">
+    app:cardCornerRadius="30dp">
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/myTextInputLayoutCode"
         android:layout_width="match_parent"
@@ -84,10 +85,10 @@ tools:context=".MainActivity">
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="46dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="7dp"
-        android:layout_marginTop="7dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="13dp"
         android:backgroundTint="@color/orange"
         app:tint="@color/black"
         android:src="@drawable/ic_baseline_key_24" />
