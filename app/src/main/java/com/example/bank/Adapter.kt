@@ -18,10 +18,10 @@ class CustomAdapter(private val postList: List<TransActionData>) : RecyclerView.
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
        // holder.textView.text = postList[position].mabdaCard.bankName.name
         val ItemsViewModel = postList[position]
-        var card1 = Card("1", BankName.Mellat, "Zahra")
-        var card2 = Card("2", BankName.Keshavarzi, "Vahid")
-        var transActionData = TransActionData(card1, card2)
-        holder.textView.text = transActionData.getName()
+//        var card1 = Account("1", "Zahra", BankName.bankName.Mellat)
+//        var card2 = Card("2", BankName.Keshavarzi, "Vahid")
+//        var transActionData = TransActionData(card1, card2)
+//        holder.textView.text = transActionData.getName()
     }
 
     override fun getItemCount() = postList.size

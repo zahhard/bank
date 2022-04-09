@@ -35,10 +35,9 @@ class HomeFragment : Fragment() {
 
     private fun setRecyclerView() {
         var posts: ArrayList<TransActionData> = ArrayList()
-        var card1 = Card("1", BankName.Mellat, "Zahra")
-        var card2 = Card("2", BankName.Keshavarzi, "Vahid")
+
         for (i in 1..5) {
-            posts.add(TransActionData(card1, card2))
+            posts.add(TransActionData())
         }
         binding.recyclerview.layoutManager = LinearLayoutManager(
             activity,
