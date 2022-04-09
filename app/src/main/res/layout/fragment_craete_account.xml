@@ -49,7 +49,7 @@
                         android:layout_height="wrap_content"
                         android:background="@color/light_blue"
                         android:hint="@string/name"
-                        android:inputType="textAutoCorrect"
+                        android:inputType="textAutoCorrect|textPersonName"
                         android:singleLine="true"
                         android:textColor="@color/white" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -67,30 +67,12 @@
                         android:id="@+id/my_editTextBirth"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/birth_place"
-                        android:singleLine="true"
                         android:background="@color/light_blue"
+                        android:hint="@string/father__name"
+                        android:inputType="textPersonName"
+                        android:singleLine="true"
                         android:textColor="@color/white" />
                 </com.google.android.material.textfield.TextInputLayout>
-
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/myTextInputLayout1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="8dp"
-                    android:layout_marginHorizontal="16dp">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/my_editText1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/address"
-                        android:singleLine="true"
-                        android:background="@color/light_blue"
-                        android:textColor="@color/white" />
-                </com.google.android.material.textfield.TextInputLayout>
-
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/myTextInputLayoutPost"
@@ -103,49 +85,31 @@
                         android:id="@+id/my_editTextPost"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/post_code"
-                        android:singleLine="true"
                         android:background="@color/light_blue"
-                        android:textColor="@color/white"
-                        android:inputType="number"/>
+                        android:hint="@string/post_code"
+                        android:inputType="numberSigned|number"
+                        android:singleLine="true"
+                        android:textColor="@color/white" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <TextView
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/myTextInputLayout1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/gender"
-                    android:layout_marginHorizontal="20dp"
-                    android:textSize="18sp"
-                    android:textColor="@color/white"/>
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="25sp"
+                    android:layout_marginHorizontal="16dp">
 
-                <RadioGroup
-                    android:id="@+id/gender"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginHorizontal="20dp"
-                    android:gravity="end"
-                    android:layout_marginVertical="16dp">
-
-                    <RadioButton
-                        android:id="@+id/weman"
-                        android:layout_width="wrap_content"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/my_editText1"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="16dp"
-                        android:buttonTint="@color/white"
-                        android:text="@string/woman"
+                        android:background="@color/light_blue"
+                        android:hint="@string/phone_number"
+                        android:inputType="phone"
+                        android:singleLine="true"
                         android:textColor="@color/white" />
-
-                    <RadioButton
-                        android:id="@+id/men"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="16dp"
-                        android:buttonTint="@color/white"
-                        android:text="@string/man"
-
-                        android:textColor="@color/white" />
-                </RadioGroup>
+                </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
