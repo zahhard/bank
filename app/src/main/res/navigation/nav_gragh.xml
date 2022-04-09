@@ -20,4 +20,8 @@
         android:name="com.example.bank.LoginFragment"
         android:label="Login"
         tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/craeteAccountFragment"
+        android:name="com.example.bank.CraeteAccountFragment"
+        android:label="Create your account" />
 </navigation>

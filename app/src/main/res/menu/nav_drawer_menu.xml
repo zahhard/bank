@@ -5,15 +5,19 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:icon="@drawable/ic_baseline_home_24"
             android:id="@+id/homeFragment"
             android:title="Home" />
         <item
+            android:icon="@drawable/ic_baseline_person_24"
             android:id="@+id/profileFragment2"
             android:title="Profile" />
         <item
             android:id="@+id/loginFragment"
             android:title="Login" />
         <item
+            android:icon="@drawable/ic_baseline_create_24"
+            android:id="@+id/craeteAccountFragment"
             android:title="Crate new account" />
     </group>
 
