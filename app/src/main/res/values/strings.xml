@@ -6,8 +6,8 @@
     <string name="transfer">Transfer</string>
     <string name="name">Full name</string>
     <string name="code">کد ملی</string>
-    <string name="birth_place">Birth place</string>
-    <string name="address">Address</string>
+    <string name="father__name">Father name</string>
+    <string name="phone_number">Phone number</string>
     <string name="post_code">Post code</string>
     <string name="gender">Gender</string>
     <string name="woman">female</string>
