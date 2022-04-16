@@ -16,4 +16,5 @@
     <string name="edit">Edit info</string>
     <string name="logout">Add new person</string>
     <string name="my_balance">My Balance</string>
+    <string name="balance">Balance</string>
 </resources>
