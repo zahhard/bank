@@ -1,18 +1,40 @@
 package com.example.bank
 
-import androidx.room.Database
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-import androidx.room.RoomDatabase
+import android.content.Context
+import androidx.room.*
 
 @Entity
-data class Account(
+data class AccountEntity(
     @PrimaryKey val accountNumber : Long ,
     val accountType : String,
-    val balance : Double
+    val balance : String
 )
 
-@Database (entities = [Account::class], version = 1)
-abstract class AppDataBase : RoomDatabase() {
-    abstract fun accountDao() : AccountDao
+
+@Database(entities = [AccountEntity::class], version = 1)
+abstract class AppDatabase : RoomDatabase() {
+    abstract fun questionDao(): AccountDao
+
+    companion object {
+        var db: AppDatabase? = null
+
+        fun getAppDataBase(context: Context): AppDatabase? {
+            if (db == null) {
+                synchronized(AppDatabase::class) {
+                    db =
+                        Room.databaseBuilder(
+                            context.applicationContext,
+                            AppDatabase::class.java, "myDB"
+                        )
+                            .allowMainThreadQueries()
+                            .build()
+                }
+            }
+            return db
+        }
+
+        fun destroyDataBase() {
+            db = null
+        }
+    }
 }
