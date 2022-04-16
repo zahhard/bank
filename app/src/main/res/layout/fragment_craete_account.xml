@@ -110,6 +110,24 @@
                         android:inputType="number"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/myTextInputLayoutBalance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="8dp"
+                    android:layout_marginHorizontal="16dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/my_editTextBalance"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/balance"
+                        android:singleLine="true"
+                        android:background="@color/light_blue"
+                        android:textColor="@color/white"
+                        android:inputType="number"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -151,7 +169,7 @@
         </androidx.cardview.widget.CardView>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btn_regester"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/regester"
