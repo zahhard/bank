@@ -1,8 +1,12 @@
 package com.example.bank
 
 
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 
-class ViewModel :ViewModel() {
+class MainViewModel (app: Application) : AndroidViewModel(app) {
 
+    init {
+        AccountRepository.initDB(app.applicationContext)
+    }
 }
