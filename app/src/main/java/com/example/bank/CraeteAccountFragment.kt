@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.room.Room
 import com.example.bank.AppDatabase.Companion.db
@@ -27,26 +28,31 @@ class CraeteAccountFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnRegester.setOnClickListener {
-            checkBeFull()
-            var type = ""
-            if (binding.saving.isChecked)
-                type = binding.saving.text.toString()
-            if (binding.Gharzolhasane.isChecked)
-                type = binding.Gharzolhasane.text.toString()
-            AccountRepository.insertAccount(type , binding.myEditTextBalance.text.toString())
+        binding.btnCreate.setOnClickListener {
+            if (checkBeFull()) {
+                viewModel.addAccountToDatabase(checkType() , binding.etBalance.text.toString())
+                Toast.makeText(requireActivity(), "sdfsf", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
-    private fun checkBeFull() {
-        if (binding.myEditTextBirth.text.isNullOrBlank()){
-            binding.myEditTextBirth.error = ""
+    private fun checkBeFull() : Boolean {
+        if (binding.etBalance.text.isNullOrBlank()){
+            binding.etBalance.error = ""
+            return false
         }
-        if (binding.myEditTextName.text.isNullOrBlank()){
-            binding.myEditTextName.error = ""
+        if ( binding.rbSaving.text.isNullOrBlank() && binding.rbGharzolhasane.text.isNullOrBlank() ){
+            binding.tvAccountType.error = ""
+            return false
         }
-        if (binding.myEditTextPost.text.isNullOrBlank()){
-            binding.myEditTextPost.error = ""
-        }
+        return true
+    }
+
+    fun checkType() : String {
+        if (binding.rbGharzolhasane.isChecked)
+            return binding.rbGharzolhasane.text.toString()
+        if (binding.rbSaving.isChecked)
+            return binding.rbSaving.text.toString()
+        return  ""
     }
 }
