@@ -1,22 +1,19 @@
 package com.example.bank;
 
-public abstract class Account {
+import java.util.SplittableRandom;
 
-    public Person person ;
+public class Account {
+
+    public String type ;
     public Double balance;
     public String cardNumber ;
 
-    Account(Person inputPerson, String inputCardNumber, Double inputBalance){
-        person = inputPerson ;
+    Account(String inputType, String inputCardNumber, String inputBalance){
+        type = inputType;
         cardNumber = inputCardNumber ;
-        balance = inputBalance ;
+        balance = Double.parseDouble(inputBalance) ;
     }
-    public void whithdraw( Double money ){
-        balance -= money;
-    }
-    public void deposit( Double money ){
-        balance += money;
-    }
-    public abstract void calculateBenefit();
-
+    public void whithdraw( String money ){  balance  -= Double.parseDouble(money); }
+    public void deposit( String money ){  balance  += Double.parseDouble(money); }
+    public void calculateBenefit(){};
 }
