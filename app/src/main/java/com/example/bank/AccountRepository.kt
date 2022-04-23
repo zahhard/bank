@@ -1,11 +1,12 @@
 package com.example.bank
 
 import android.content.Context
+import kotlin.random.Random
+import kotlin.random.nextLong
 
 object AccountRepository {
     var db : AppDatabase? = null
     var accountDao  : AccountDao? = null
-    var accountCounter : Long = 1000000000000000
 
     fun initDB(context : Context){
         db = AppDatabase.getAppDataBase(context)
@@ -23,8 +24,19 @@ object AccountRepository {
     }
 
     fun insertAccount(accountType: String, balance: String){
-        accountCounter ++
-        db?.questionDao()?.insertAll(AccountEntity(accountCounter, accountType, balance))
+        var num = Random.nextLong(1000000000000000..9999999999999999)
+        db?.questionDao()?.insertAll(AccountEntity(num, accountType, balance))
+    }
+    fun showAllAccounts() : List<AccountEntity>?{
+        return  db?.questionDao()?.getAll()
+    }
+
+    fun deleteAll(){
+        db?.questionDao()?.deleteAll()
+    }
+
+    fun getCount(): Int? {
+        return db?.questionDao()?.getCount()
     }
 
 }
