@@ -17,4 +17,5 @@
     <string name="logout">Add new person</string>
     <string name="my_balance">My Balance</string>
     <string name="balance">Balance</string>
+    <string name="create">Create</string>
 </resources>
