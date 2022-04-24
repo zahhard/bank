@@ -1,6 +1,8 @@
 package com.example.bank
 
 import android.content.Context
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import kotlin.random.Random
 import kotlin.random.nextLong
 
@@ -23,10 +25,20 @@ object AccountRepository {
         )
     }
 
-    fun insertAccount(accountType: String, balance: String){
-        var num = Random.nextLong(1000000000000000..9999999999999999)
-        db?.questionDao()?.insertAll(AccountEntity(num, accountType, balance))
+    private fun numberProducer() : Long? {
+        var number = db?.questionDao()?.getLastAccountNumber()
+        if (number != null) {
+            return number+5
+        }
+        return null
     }
+
+    fun insertAccount(accountType: String, balance: String){
+        var num = numberProducer()
+        num?.let { AccountEntity(it, accountType, balance) }
+            ?.let { db?.questionDao()?.insertAll(it) }
+    }
+
     fun showAllAccounts() : List<AccountEntity>?{
         return  db?.questionDao()?.getAll()
     }
@@ -35,8 +47,16 @@ object AccountRepository {
         db?.questionDao()?.deleteAll()
     }
 
-    fun getCount(): Int? {
+    fun getCount(): LiveData<Int>? {
         return db?.questionDao()?.getCount()
+    }
+
+    fun getQuestion(n : Int) : AccountEntity? {
+        return db?.questionDao()?.getQuestion(n)
+    }
+
+    fun getAccount(n : String): AccountEntity? {
+        return db?.questionDao()?.findByAccountNumber(n)
     }
 
 }
