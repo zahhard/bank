@@ -31,7 +31,7 @@ class CraeteAccountFragment : Fragment() {
         binding.btnCreate.setOnClickListener {
             if (checkBeFull()) {
                 viewModel.addAccountToDatabase(checkType() , binding.etBalance.text.toString())
-                Toast.makeText(requireActivity(), "sdfsf", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireActivity(), "Your account created :)", Toast.LENGTH_SHORT).show()
             }
         }
     }
