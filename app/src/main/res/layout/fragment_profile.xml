@@ -102,23 +102,11 @@
                 android:textSize="20sp"
                 android:text="TextView" />
 
-
-            <TextView
-                android:id="@+id/textView7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:padding="8dp"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:text="TextView" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btn_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
@@ -128,7 +116,7 @@
         android:text="@string/edit" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btn_add_new_person"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
