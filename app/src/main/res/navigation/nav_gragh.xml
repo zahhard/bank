@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_gragh"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/showAccountFragment">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -14,14 +14,27 @@
         android:id="@+id/profileFragment2"
         android:name="com.example.bank.ProfileFragment"
         android:label="Profile"
-        tools:layout="@layout/fragment_profile" />
-    <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.example.bank.LoginFragment"
-        android:label="Login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment2_to_inputProfileFragment"
+            app:destination="@id/inputProfileFragment" />
+    </fragment>
+
     <fragment
         android:id="@+id/craeteAccountFragment"
         android:name="com.example.bank.CraeteAccountFragment"
         android:label="Create your account" />
+    <fragment
+        android:id="@+id/inputProfileFragment"
+        android:name="com.example.bank.InputProfileFragment"
+        android:label="InputProfileFragment" >
+        <action
+            android:id="@+id/action_inputProfileFragment_to_profileFragment2"
+            app:destination="@id/profileFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/showAccountFragment"
+        android:name="com.example.bank.ShowAccountFragment"
+        android:label="fragment_show_account"
+        tools:layout="@layout/fragment_show_account" />
 </navigation>
