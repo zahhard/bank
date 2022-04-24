@@ -14,7 +14,6 @@ class HomeFragment : Fragment() {
     lateinit var binding: FragmentHomeBinding
 
   //  private val movieList = ArrayList<MovieModel>()
-    private lateinit var transActionData: TransActionData
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -30,19 +29,5 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         requireActivity().title = "Bank :)"
-        setRecyclerView()
-    }
-
-    private fun setRecyclerView() {
-        var posts: ArrayList<TransActionData> = ArrayList()
-
-        for (i in 1..5) {
-            posts.add(TransActionData())
-        }
-        binding.recyclerview.layoutManager = LinearLayoutManager(
-            activity,
-            LinearLayoutManager.HORIZONTAL, false
-        )
-        binding.recyclerview.adapter = CustomAdapter(posts)
     }
 }
