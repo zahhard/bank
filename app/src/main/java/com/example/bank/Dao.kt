@@ -9,7 +9,7 @@ import androidx.room.Query
 @Dao
 interface AccountDao {
     @Query ("SELECT * FROM AccountEntity")
-    fun getAll() : List<AccountEntity>
+    fun getAll() : LiveData<List<AccountEntity>>
 
     @Query (" SELECT * FROM AccountEntity WHERE accountNumber IN (:accountNumber)")
     fun loadAllByNumber ( accountNumber : LongArray ) : List<AccountEntity>
@@ -27,7 +27,7 @@ interface AccountDao {
     fun getQuestion( n : Int?) : AccountEntity
 
     @Query("SELECT * FROM AccountEntity WHERE accountNumber = :id")
-    fun findByAccountNumber(id: String?): AccountEntity?
+    fun findByAccountNumber(id: Int?): AccountEntity
 
     @Query("SELECT accountNumber FROM AccountEntity ORDER BY accountNumber DESC LIMIT 1")
     fun getLastAccountNumber(): Long
