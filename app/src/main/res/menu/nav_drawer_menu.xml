@@ -13,14 +13,11 @@
             android:id="@+id/profileFragment2"
             android:title="Profile" />
         <item
-            android:id="@+id/loginFragment"
-            android:title="Login" />
-        <item
             android:icon="@drawable/ic_baseline_create_24"
             android:id="@+id/craeteAccountFragment"
             android:title="Crate new account" />
         <item
-            android:icon="@drawable/ic_baseline_create_24"
+            android:icon="@drawable/ic_baseline_currency_exchange_24"
             android:id="@+id/showAccountFragment"
             android:title="My Accounts" />
     </group>
@@ -29,6 +26,7 @@
         <menu>
             <group android:checkableBehavior="single">
                 <item
+                    android:icon="@drawable/ic_baseline_exit_to_app_24"
                     android:id="@+id/exit"
                     android:title="Exit" />
             </group>
