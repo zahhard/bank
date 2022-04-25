@@ -5,7 +5,7 @@ import androidx.room.*
 
 @Entity
 data class AccountEntity(
-    @PrimaryKey val accountNumber : Long ,
+    @PrimaryKey(autoGenerate = true) val accountNumber : Long ,
     val accountType : String,
     val balance : String
 )
