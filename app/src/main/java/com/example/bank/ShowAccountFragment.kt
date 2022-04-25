@@ -7,14 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import com.example.bank.databinding.FragmentHomeBinding
 import com.example.bank.databinding.FragmentShowAccountBinding
 
 class ShowAccountFragment : Fragment() {
     private lateinit var binding: FragmentShowAccountBinding
 
     // var accounts : List<AccountEntity>
-    private var conter = 0
     private val viewModel: MainViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,14 +28,11 @@ class ShowAccountFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var accounts = viewModel.showAllAccount()
-
-        viewModel.initCount()
+      //var accounts = viewModel.showAllAccount()
         observeAll()
         binding.tvCount.text = viewModel.count.toString()
-        binding.btnNext.setOnClickListener {
-            viewModel.nextClicked()
-        }
+        var adapter = CustomAdapter(viewModel.listAccount)
+        binding.recyclerview.adapter = adapter
     }
 
 
@@ -45,10 +40,14 @@ class ShowAccountFragment : Fragment() {
         val countObserver = Observer<Int>{ count ->
             binding.tvCount.text = count.toString()
         }
-        val accountObserver = Observer<AccountEntity>{ account->
-            binding.tvAccountNum.text = account.toString()
+
+        viewModel.list?.observe(requireActivity()){
+            it.forEach {
+                //خب اینجا تو حلقه لیست اکانت هارو بهت میده
+               //binding.tvAccountNum.text=it.accountNumber.toString()
+                viewModel.listAccount.add(it)
+            }
         }
-      //  viewModel.questionLiveData?.observe(viewLifecycleOwner, accountObserver)
         viewModel.count?.observe(viewLifecycleOwner, countObserver)
     }
 

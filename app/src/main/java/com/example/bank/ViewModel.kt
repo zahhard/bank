@@ -5,6 +5,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import java.util.ArrayList
 
 class MainViewModel (app: Application) : AndroidViewModel(app) {
 
@@ -13,34 +14,24 @@ class MainViewModel (app: Application) : AndroidViewModel(app) {
     val nextEnableLiveData = MutableLiveData<Boolean>(true)
     val backEnableLiveData = MutableLiveData<Boolean>(false)
     val count: LiveData<Int>?
+    val list: LiveData<List<AccountEntity>>?
+   val  listAccount = ArrayList<AccountEntity>()
 
+    val livedata =MutableLiveData<List<String>>()
     init {
         AccountRepository.initDB(app.applicationContext)
         count = AccountRepository.getCount()
+        list = AccountRepository.showAllAccounts()
+
     }
 
     fun addAccountToDatabase(type: String, balance: String) {
         AccountRepository.insertAccount(type, balance)
     }
 
-    fun showAllAccount(): List<AccountEntity>? {
-        return AccountRepository.showAllAccounts()
-    }
 
     fun deleteAll() {
         AccountRepository.deleteAll()
     }
 
-    fun nextClicked() {
-
-}
-
-//    fun nextClicked() {
-//        numberLiveData.value = numberLiveData.value?.plus(1)
-//        numberLiveData.value?.let {
-//            questionTextLiveData.value = QuestionRepository.questionList[it - 1]
-//            answerTextLiveData.value = QuestionRepository.answerList[it - 2]
-//        }
-//        checkEnabled()
-//    }
 }
