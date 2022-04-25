@@ -39,7 +39,7 @@ object AccountRepository {
             ?.let { db?.questionDao()?.insertAll(it) }
     }
 
-    fun showAllAccounts() : List<AccountEntity>?{
+    fun showAllAccounts() : LiveData<List<AccountEntity>>?{
         return  db?.questionDao()?.getAll()
     }
 
@@ -51,12 +51,5 @@ object AccountRepository {
         return db?.questionDao()?.getCount()
     }
 
-    fun getQuestion(n : Int) : AccountEntity? {
-        return db?.questionDao()?.getQuestion(n)
-    }
-
-    fun getAccount(n : String): AccountEntity? {
-        return db?.questionDao()?.findByAccountNumber(n)
-    }
 
 }
